@@ -1,14 +1,33 @@
+.container input,
 .container {
-    margin-top: 1.2rem;
+  color: black;
   }
-  
-  .container input,
-  .container ::-webkit-input-placeholder {
-    color: white !important;
-  }
-  .container input:focus {
-    background-color: transparent;
-    box-shadow: none !important;
-    border: none;
-    border-bottom: 2px solid tomato;
-  }
+
+.icon i {
+  padding: 40px;
+  font-size: 80px;
+}
+
+.icon {
+    text-align: center;
+}
+
+.font-1 {
+    font-size: 40px;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.font-2 {
+    font-size: 45px;
+    text-align: center;
+}
+
+.font-3 {
+    font-size: 25px;
+    text-align: center;
+}
+
+.temp-1 {
+  margin-right: 50px;
+}

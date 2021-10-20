@@ -5,8 +5,38 @@ form {
   form input[name="city"],
   form input[name="country"] {
     background-color: transparent;
-    color: white;
+    color: black;
     border: none;
     border-bottom: 2px solid whitesmoke;
     border-radius: 0;
+    margin: 20px;
+    font-size: 30px;
   }
+
+  form input:focus {
+      outline: none;
+  }
+
+
+.row {
+    display: flex;
+}
+
+button {
+    margin-left: 20px;
+    margin-top: 5px;
+    width: 150px;
+    height: 55px;
+    border-radius: 10px;
+    background-color: yellow;
+    border: 0;
+    font-size: 20px;
+}
+
+.error {
+  text-align: center;
+  font-size: 20px;
+  color: red;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
