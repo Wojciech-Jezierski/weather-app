@@ -33,10 +33,12 @@ export default Weather;
 function maxminTemp(min, max) {
   if (max && min) {
     return (
-      <h3>
-        <span className="temp-1">{min}&deg;</span>
-        <span className="temp-2">{max}&deg;</span>
-      </h3>
+      <div>
+        <h3>
+          <span className="temp-1">{min}&deg;</span>
+          <span className="temp-2">{max}&deg;</span>
+        </h3>
+      </div>
     );
   }
 }

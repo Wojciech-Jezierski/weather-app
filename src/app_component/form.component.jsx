@@ -6,6 +6,7 @@ const Form = props => {
     <div className="container">
       <form onSubmit={props.loadweather}>
         <div>{props.error ? error() : ""}</div>
+        <div>{props.error2 ? error2() : ""}</div>
         <div className="row">
           <div className="col-1">
             <input
@@ -34,10 +35,18 @@ const Form = props => {
   );
 };
 
-const error = props => {
+const error = (props) => {
   return (
     <div className="error" role="alert">
       Please Enter City and Country...!
+    </div>
+  );
+};
+
+const error2 = (props) => {
+  return (
+    <div className="error" role="alert">
+      This name doesn't exists in database!
     </div>
   );
 };

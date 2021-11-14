@@ -20,7 +20,8 @@ class App extends React.Component {
       temp_max: null,
       temp_min: null,
       description: "",
-      error: false
+      error: false,
+      error2: false
     };
 
     this.weatherIcon = {
@@ -74,38 +75,43 @@ class App extends React.Component {
     const city = e.target.elements.city.value;
 
     if (country && city) {
-      const api_call = await fetch(
-        `http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${Api_Key}`
-      );
+      try {
+        const api_call = await fetch(
+          `http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${Api_Key}`)
 
-      const response = await api_call.json();
+          const response = await api_call.json();
 
-      this.setState({
-        city: `${response.name}, ${response.sys.country}`,
-        country: response.sys.country,
-        main: response.weather[0].main,
-        celsius: this.calCelsius(response.main.temp),
-        temp_max: this.calCelsius(response.main.temp_max),
-        temp_min: this.calCelsius(response.main.temp_min),
-        description: response.weather[0].description,
-        error: false
-      });
-
-      // seting icons
-      this.get_WeatherIcon(this.weatherIcon, response.weather[0].id);
-
-      console.log(response);
+          this.setState({
+              city: `${response.name}, ${response.sys.country}`,
+              country: response.sys.country,
+              main: response.weather[0].main,
+              celsius: this.calCelsius(response.main.temp),
+              temp_max: this.calCelsius(response.main.temp_max),
+              temp_min: this.calCelsius(response.main.temp_min),
+              description: response.weather[0].description,
+              error: false,
+              error2: false
+            });
+    
+          // seting icons
+          this.get_WeatherIcon(this.weatherIcon, response.weather[0].id);
+          console.log(response);
+          
+      } catch(error) {
+          this.setState({error2 : true});
+          this.setState({error : false});
+      }
+      
     } else {
-      this.setState({
-        error: true
-      });
+      this.setState({error : true});
+      this.setState({error2 : false});
     }
   };
 
   render() {
     return (
       <div className="App">
-        <Form loadweather={this.getWeather} error={this.state.error} />
+        <Form loadweather={this.getWeather} error={this.state.error} error2={this.state.error2} />
         <Weather
           cityname={this.state.city}
           weatherIcon={this.state.icon}
